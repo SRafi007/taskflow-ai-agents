@@ -1,0 +1,274 @@
+# config/tasks_config.yaml
+# Real productivity workflows for actual work tasks
+
+# =============================================================================
+# FOLDER CLEANUP WORKFLOW - Clean and organize messy directories
+# =============================================================================
+folder_cleanup:
+  name: "Folder Organization Task"
+  description: "Clean up messy folders by organizing files by type, date, or custom criteria"
+  
+  agent_sequence:
+    - agent: "system_organizer"
+      task: "Analyze folder structure and identify organization opportunities"
+      inputs: ["target_folder", "organization_criteria"]
+      outputs: ["analysis_report", "organization_plan"]
+      
+    - agent: "system_organizer"
+      task: "Execute file organization based on plan"
+      inputs: ["organization_plan", "user_confirmation"]
+      outputs: ["organization_results", "moved_files_log"]
+  
+  success_criteria:
+    - "Files are logically organized according to criteria"
+    - "No files are lost or corrupted during organization"
+    - "Folder structure is clean and intuitive"
+    - "Duplicate files are identified and handled"
+  
+  estimated_time: "5-20 minutes"
+  requires_confirmation: true
+  backup_before_execution: true
+
+# =============================================================================
+# REAL-TIME MONITORING WORKFLOW - Monitor websites, prices, news
+# =============================================================================
+realtime_monitoring:
+  name: "Real-time Information Monitoring"
+  description: "Set up monitoring for websites, prices, news, or other dynamic content"
+  
+  agent_sequence:
+    - agent: "web_intelligence"
+      task: "Set up monitoring for specified targets"
+      inputs: ["monitoring_targets", "check_frequency", "alert_criteria"]
+      outputs: ["monitoring_setup", "baseline_data"]
+      
+    - agent: "scheduler"
+      task: "Schedule regular checks and alerts"
+      inputs: ["monitoring_setup", "check_frequency"]
+      outputs: ["scheduled_tasks", "reminder_settings"]
+      
+    - agent: "web_intelligence"
+      task: "Perform initial data collection"
+      inputs: ["monitoring_targets"]
+      outputs: ["initial_results", "monitoring_status"]
+  
+  success_criteria:
+    - "Monitoring is successfully configured"
+    - "Initial data collection completes without errors"
+    - "Alerts and reminders are properly scheduled"
+    - "User receives confirmation of setup"
+  
+  estimated_time: "3-8 minutes"
+  recurring: true
+  max_iterations: "continuous"
+
+# =============================================================================
+# DATA EXTRACTION WORKFLOW - Scrape and structure data from sources
+# =============================================================================
+data_extraction:
+  name: "Data Extraction and Processing"
+  description: "Extract structured data from websites, PDFs, or documents"
+  
+  agent_sequence:
+    - agent: "data_scraper"
+      task: "Analyze data source and plan extraction"
+      inputs: ["data_source", "required_fields", "output_format"]
+      outputs: ["extraction_plan", "source_analysis"]
+      
+    - agent: "data_scraper"  
+      task: "Execute data extraction"
+      inputs: ["extraction_plan", "data_source"]
+      outputs: ["raw_extracted_data", "extraction_log"]
+      
+    - agent: "data_scraper"
+      task: "Clean and format extracted data"
+      inputs: ["raw_extracted_data", "output_format"]
+      outputs: ["cleaned_data", "quality_report"]
+  
+  success_criteria:
+    - "Data extraction completes successfully"
+    - "Extracted data matches required format"
+    - "Data quality meets minimum standards"
+    - "Output is saved in requested format"
+  
+  estimated_time: "5-15 minutes"
+  respects_rate_limits: true
+  output_validation: true
+
+# =============================================================================
+# SCHEDULE MANAGEMENT WORKFLOW - Manage reminders and schedules
+# =============================================================================
+schedule_management:
+  name: "Schedule and Reminder Management"
+  description: "Set up reminders, manage schedules, and optimize time management"
+  
+  agent_sequence:
+    - agent: "scheduler"
+      task: "Parse schedule requests and create timeline"
+      inputs: ["schedule_requests", "current_calendar", "preferences"]
+      outputs: ["proposed_schedule", "conflict_analysis"]
+      
+    - agent: "scheduler"
+      task: "Set up reminders and notifications"
+      inputs: ["proposed_schedule", "notification_preferences"]
+      outputs: ["active_reminders", "notification_schedule"]
+      
+    - agent: "scheduler"
+      task: "Optimize schedule for efficiency"
+      inputs: ["proposed_schedule", "priorities"]
+      outputs: ["optimized_schedule", "recommendations"]
+  
+  success_criteria:
+    - "All requested reminders are properly set"
+    - "Schedule conflicts are identified and resolved"
+    - "Notifications are configured correctly"
+    - "Schedule optimization suggestions are provided"
+  
+  estimated_time: "2-10 minutes"
+  integrates_with_calendar: true
+  supports_recurring: true
+
+# =============================================================================
+# APP AUTOMATION WORKFLOW - Control applications and automate tasks
+# =============================================================================
+app_automation:
+  name: "Application Automation"
+  description: "Automate repetitive tasks in desktop applications"
+  
+  agent_sequence:
+    - agent: "automation_controller"
+      task: "Analyze target application and plan automation"
+      inputs: ["target_app", "automation_tasks", "safety_requirements"]
+      outputs: ["automation_plan", "safety_checklist"]
+      
+    - agent: "automation_controller"
+      task: "Execute automation sequence with monitoring"
+      inputs: ["automation_plan", "user_approval"]
+      outputs: ["automation_results", "execution_log"]
+      
+    - agent: "automation_controller"
+      task: "Verify results and create reusable script"
+      inputs: ["automation_results", "execution_log"]
+      outputs: ["verification_report", "automation_script"]
+  
+  success_criteria:
+    - "Automation executes without errors"
+    - "Target application responds correctly"
+    - "All safety checks pass"
+    - "Results match expected outcomes"
+  
+  estimated_time: "3-15 minutes"
+  requires_user_approval: true
+  safety_critical: true
+
+# =============================================================================
+# COMPREHENSIVE CLEANUP WORKFLOW - Full system organization
+# =============================================================================
+system_cleanup:
+  name: "Comprehensive System Cleanup"
+  description: "Complete system cleanup including files, duplicates, and organization"
+  
+  agent_sequence:
+    - agent: "system_organizer"
+      task: "Scan system for cleanup opportunities"
+      inputs: ["scan_locations", "cleanup_criteria"]
+      outputs: ["cleanup_analysis", "recommendations"]
+      
+    - agent: "system_organizer"
+      task: "Remove duplicates and empty folders"
+      inputs: ["cleanup_analysis", "safety_settings"]
+      outputs: ["cleanup_results", "space_recovered"]
+      
+    - agent: "system_organizer"
+      task: "Organize remaining files by intelligent criteria"
+      inputs: ["cleanup_results", "organization_preferences"]
+      outputs: ["organization_results", "final_structure"]
+      
+    - agent: "scheduler"
+      task: "Set up maintenance reminders"
+      inputs: ["final_structure", "maintenance_schedule"]
+      outputs: ["maintenance_reminders"]
+  
+  success_criteria:
+    - "Significant disk space is recovered"
+    - "File organization is logical and sustainable"
+    - "No important files are lost"
+    - "Future maintenance is scheduled"
+  
+  estimated_time: "15-45 minutes"
+  backup_required: true
+  confirmation_points: 3
+
+# =============================================================================
+# QUICK PRODUCTIVITY TASKS - Fast single-agent tasks
+# =============================================================================
+quick_tasks:
+  
+  # Quick web search with current info
+  web_lookup:
+    name: "Quick Web Information Lookup"
+    agent: "web_intelligence"
+    task: "Find current information on specified topic"
+    estimated_time: "1-3 minutes"
+    
+  # Set simple reminder
+  set_reminder:
+    name: "Set Single Reminder"
+    agent: "scheduler"
+    task: "Set up one-time or recurring reminder"
+    estimated_time: "30 seconds"
+    
+  # Organize single folder
+  organize_folder:
+    name: "Organize Single Folder"
+    agent: "system_organizer"
+    task: "Clean and organize one specific folder"
+    estimated_time: "2-5 minutes"
+    
+  # Extract data from one source
+  quick_scrape:
+    name: "Quick Data Extraction"
+    agent: "data_scraper"
+    task: "Extract data from single source"
+    estimated_time: "1-4 minutes"
+
+# =============================================================================
+# GLOBAL WORKFLOW SETTINGS FOR REAL TASKS
+# =============================================================================
+global_workflow_settings:
+  
+  # Safety and confirmation settings
+  safety:
+    require_confirmation_for:
+      - "file_deletion"
+      - "system_changes"
+      - "app_automation"
+      - "bulk_file_operations"
+    
+    backup_before:
+      - "folder_cleanup"
+      - "system_cleanup"
+      - "file_organization"
+    
+    max_files_per_operation: 1000
+    max_automation_steps: 50
+  
+  # Performance settings
+  performance:
+    max_concurrent_tasks: 3
+    rate_limit_delay: 1.0  # seconds between requests
+    timeout_per_operation: 300  # 5 minutes
+    max_memory_usage_mb: 512
+  
+  # Integration settings
+  integration:
+    calendar_apps: ["outlook", "google_calendar", "apple_calendar"]
+    file_managers: ["explorer", "finder", "nautilus"]
+    supported_browsers: ["chrome", "firefox", "edge", "safari"]
+  
+  # Output and logging
+  output:
+    log_all_operations: true
+    save_before_after_snapshots: true
+    create_operation_reports: true
+    notify_completion: true

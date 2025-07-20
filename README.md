@@ -3,11 +3,9 @@
 taskflow-ai-agents/
 │
 ├── agents/                           # Agent definitions - Core AI personalities with specific roles
-│   ├── __init__.py                   # Package init - Exports agent classes, imports common dependencies
-│   ├── planner.py                    # Strategic agent - Breaks down tasks, creates execution plans, coordinates workflow
-│   ├── researcher.py                 # Information gatherer - Uses web_search tool, fact-checks, compiles data
-│   ├── writer.py                     # Content creator - Takes research data, generates articles/reports/content
-│   └── reviewer.py                   # Quality controller - Reviews output, suggests improvements, final approval
+│   ├── __init__.py                     # Package init - Exports agent classes, imports common dependencies 
+│   ├── base_agent.py                   # he base agent class - the foundation for all agents 
+│   ├── system_organizer.py             # System Organizer Agent - Manages files and folder organization
 │
 ├── tasks/                            # Task workflows - Orchestrates agents and defines execution flow
 │   ├── __init__.py                   # Package init - Exports task classes and workflow utilities
@@ -15,10 +13,8 @@ taskflow-ai-agents/
 │
 ├── tools/                            # External tools - Agent capabilities for interacting with outside world
 │   ├── __init__.py                   # Package init - Registers all tools, provides tool discovery mechanism
-│   ├── web_search.py                 # Internet search - Takes queries, returns formatted results, handles API calls
-│   ├── file_writer.py                # Output generation - Saves content to files, handles various formats (txt, md, docx)
-│   ├── file_reader.py                # Input processing - Reads existing files, extracts text, prepares for agents
-│   └── reminder_tool.py              # Task scheduling - Sets reminders, tracks deadlines, sends notifications
+│   ├── base_tool.py                  # Common tool interface
+│   ├── file_organizer.py             # a simple but functional tool for the system organizer agent:
 │
 ├── models/                           # LLM handling - Model loading and inference management
 │   ├── __init__.py                   # Package init - Exports model classes, handles model selection
@@ -54,3 +50,53 @@ taskflow-ai-agents/
 ├── .gitignore                        # Git exclusions - Prevents committing sensitive files, temp files, outputs
 └── README.md                         # Documentation - Setup instructions, usage guide, architecture overview
 ```
+
+# Real Productivity Agents:
+## System Organizer 🗂️
+
+Cleans messy Downloads folders
+Groups files by type (photos, documents, videos)
+Removes duplicates and empty folders
+Creates logical folder structures
+Renames files with consistent naming
+
+## Web Intelligence 🕸️
+
+Real-time price monitoring (track Amazon prices)
+News alerts for specific topics
+Website change monitoring
+Current event research
+Live data gathering
+
+## Data Scraper 📊
+
+Extract product listings from e-commerce sites
+Scrape job postings from multiple sites
+Pull data from PDFs and convert to Excel
+Collect contact information from websites
+Parse social media data
+
+## Scheduler ⏰
+
+Set reminders for bills, meetings, deadlines
+Coordinate with system calendar apps
+Optimize daily schedules
+Recurring task management
+Time zone handling
+
+## Automation Controller 🤖
+
+Fill out repetitive forms
+Automate email responses
+Control desktop applications
+Execute keyboard shortcuts
+Run maintenance scripts
+
+## Real Workflows:
+
+Folder Cleanup - Clean your messy desktop/downloads
+Real-time Monitoring - Track prices, news, website changes
+Data Extraction - Scrape any website data you need
+Schedule Management - Never miss deadlines again
+App Automation - Automate boring repetitive tasks
+System Cleanup - Complete computer organization
