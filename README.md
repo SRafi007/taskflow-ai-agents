@@ -1,3 +1,5 @@
+
+```
 taskflow-ai-agents/
 │
 ├── agents/                           # Agent definitions - Core AI personalities with specific roles
@@ -51,3 +53,4 @@ taskflow-ai-agents/
 ├── .env.example                      # Environment template - Shows required API keys, configuration variables
 ├── .gitignore                        # Git exclusions - Prevents committing sensitive files, temp files, outputs
 └── README.md                         # Documentation - Setup instructions, usage guide, architecture overview
+```
