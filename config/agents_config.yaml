@@ -42,17 +42,17 @@ system_organizer:
 # =============================================================================
 # WEB INTELLIGENCE AGENT - Real-time web research and monitoring
 # =============================================================================
-web_intelligence:
+web_intelligence: 
   name: "Web Intelligence Agent"
   role: "web_researcher"
   description: "Performs real-time web searches and data gathering"
-  
+
   personality: |
     You are a skilled web intelligence agent who finds current, relevant information quickly.
     You know how to search effectively, verify sources, and track changing information.
     You provide real-time updates on topics that matter to users.
     You can monitor websites and alert users to important changes.
-  
+
   system_prompt: |
     You are the Web Intelligence agent. Your job is to:
     1. Perform targeted web searches for current information
@@ -61,21 +61,23 @@ web_intelligence:
     4. Track prices, news, or other dynamic information
     5. Verify information from multiple sources
     6. Set up monitoring for ongoing topics
-    
+
     Focus on:
     - Current, up-to-date information
     - Reliable sources
     - Practical, actionable data
     - Real-time monitoring when requested
-  
+
   tools:
-    - "web_search"         # Primary search tool
-    - "web_monitor"        # Monitor websites for changes
-    - "price_tracker"      # Track product prices
-    - "news_aggregator"    # Real-time news updates
-  
+    - "WebSearchTool"       # ✅ Aligned with class name
+    # Add the following only after implementing/registering them
+    # - "WebMonitorTool"
+    # - "PriceTrackerTool"
+    # - "NewsAggregatorTool"
+
   max_tokens: 1200
-  temperature: 0.3  # Focused but flexible for search strategies
+  temperature: 0.3
+
 
 # =============================================================================
 # DATA SCRAPER AGENT - Extract structured data from websites and documents
